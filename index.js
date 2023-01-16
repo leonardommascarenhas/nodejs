@@ -25,6 +25,19 @@ app.get('/', (req, res)=>{
     res.sendFile(`${basePath}/index.html`)
 })
 
+
+app.get('/users/add', (req, res)=>{
+    res.sendFile(`${basePath}/userform.html`)
+} )
+
+app.get('/users/:id', (req, res)=>{
+    const id = req.params.id
+
+    console.log(`Estamos buscando pelo usuario: ${id}`)
+
+    res.sendFile(`${basePath}/users.html`)
+})
+
 app.listen(port, () =>{
     console.log(`App rodando na porta ${port}`)
 })
