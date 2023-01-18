@@ -6,8 +6,22 @@ const app = express()
 app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
 
-app.get('/', (req, res) =>{
-    res.render('home')
+app.get('/dashboard', (req, res)=>{
+    res.render('dashboard')
 })
+
+app.get('/', (req, res) =>{
+    const user = {
+        name: "Leonardo",
+        surname: "Moura"
+    }
+
+    const auth = true
+
+    res.render('home', {user: user, auth})
+})
+
+
+
 
 app.listen(3000)
